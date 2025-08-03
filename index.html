@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GHOW ID - APK Premium</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: #0f172a; color: white; }
+
+        header {
+            background: #1e293b;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+        }
+        header h1 { font-size: 24px; color: #38bdf8; }
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: 500; }
+        nav a:hover { color: #38bdf8; }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h2 { font-size: 36px; margin-bottom: 15px; }
+        .hero p { font-size: 18px; color: #94a3b8; margin-bottom: 25px; }
+        .btn {
+            background: #38bdf8;
+            color: black;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover { background: #0ea5e9; transform: scale(1.05); }
+
+        .section { padding: 60px 20px; text-align: center; }
+        .section h3 { font-size: 28px; color: #38bdf8; margin-bottom: 20px; }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+        .card:hover { background: #334155; transform: translateY(-5px); }
+        .card h4 { margin-bottom: 10px; }
+        .price { color: #38bdf8; font-weight: bold; margin: 10px 0; }
+
+        form input, form select {
+            width: 250px;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+        }
+        form button { margin-top: 10px; }
+
+        footer {
+            background: #1e293b;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GHOW ID</h1>
+        <nav>
+            <a href="#produk">Produk</a>
+            <a href="#order">Pesan</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Jual APK Premium Termurah</h2>
+        <p>Dapatkan aplikasi premium favorit Anda dengan harga terjangkau dan legal.</p>
+        <button class="btn" onclick="document.getElementById('produk').scrollIntoView({behavior:'smooth'})">Lihat Produk</button>
+    </section>
+
+    <section id="produk" class="section">
+        <h3>Produk Premium</h3>
+        <div class="products">
+            <div class="card">
+                <h4>Alight Motion 1 Year</h4>
+                <p>Edit video profesional tanpa watermark.</p>
+                <div class="price">Rp 10.000</div>
+                <button class="btn" onclick="selectProduct('Alight Motion 1 Year')">Pesan</button>
+            </div>
+            <div class="card">
+                <h4>Canva Premium</h4>
+                <p>Desain grafis mudah dengan fitur premium.</p>
+                <div class="price">Rp 3.000</div>
+                <button class="btn" onclick="selectProduct('Canva Premium')">Pesan</button>
+            </div>
+            <div class="card">
+                <h4>CapCut 1 Bulan</h4>
+                <p>Editor video terbaik tanpa iklan.</p>
+                <div class="price">Rp 8.000</div>
+                <button class="btn" onclick="selectProduct('CapCut 1 Bulan')">Pesan</button>
+            </div>
+            <div class="card">
+                <h4>CapCut 1 Minggu</h4>
+                <p>Editor video terbaik tanpa iklan.</p>
+                <div class="price">Rp 8.000</div>
+                <button class="btn" onclick="selectProduct('CapCut 1 Minggu')">Pesan</button>
+            </div>
+            </div class="card">
+                <h4>Netflix Pro</h4>
+                <p>Nonton video tanpa iklan.<p>
+                <div class="price">Rp 26.000</div>
+                <button class="btn"
+                  onclick="selectProduct('Netflix 1 Bulan 1P1U')"
+                  >Pesan</button>
+            </div>
+            </div class="card">
+                <h4>Netflix 1 Bulan 1P2U</h4>
+                <p>Nonton video tanpa iklan.<p>
+                <div class="price">Rp 18.000</div>
+                <button class="btn"
+                  onclick="selectProduct('Netflix 1 Bulan 1P2U')"
+                  >Pesan</button>
+        </div>
+        </div>
+    </section>
+
+    <section id="order" class="section">
+        <h3>Form Pemesanan</h3>
+        <form onsubmit="orderProduct(event)">
+            <select id="product" required>
+                <option value="">Pilih Produk</option>
+                <option value="Alight Motion Pro">Alight Motion 1 Year</option>
+                <option value="Canva Premium">Canva 1 Bulan</option>
+                <option value="CapCut Pro">CapCut 1 Bulan</option>
+                <option value="CapCut Pro">CapCut 1 Minggu</option>
+                <option value="Netflix Pro">Netflix 1P1U</option>
+                <option value="Netflix Pro">Netflix 1P2U</option>
+               <option value="Netflix Pro">Netflix Semi Private</option>
+            </select><br>
+            <input type="text" id="name" placeholder="Nama Lengkap" required><br>
+            <input type="No wa" id="No wa" placeholder="No Wa Kamu" required><br>
+            <input type="text" id="payment" placeholder="Metode Pembayaran (Dana,OVO,Gopay,Qris)" required><br>
+            <button type="submit" class="btn">Kirim Pesanan</button>
+        </form>
+    </section>
+
+    <section id="kontak" class="section">
+        <h3>Hubungi Kami</h3>
+        <p>Email: support@ghowid.com</p>
+        <p>WhatsApp: +62 831-9042-5655</p>
+        <p>Telegram: @vemxID<p>
+    </section>
+
+    <footer>
+        &copy; 2025 GHOW ID. Semua Hak Dilindungi.
+    </footer>
+
+    <script>
+        function selectProduct(product) {
+            document.getElementById('product').value = product;
+            document.getElementById('order').scrollIntoView({behavior: 'smooth'});
+        }
+
+        function orderProduct(e) {
+            e.preventDefault();
+            const product = document.getElementById('product').value;
+            const name = document.getElementById('name').value;
+            alert(`Pesanan berhasil!\n\nProduk: ${product}\nNama: ${name}\n\nKami akan menghubungi Anda melalui email.`);
+        }
+    </script>
+</body>
+</html>
